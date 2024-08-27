@@ -1,1 +1,29 @@
+I've created a gapless table that should be intuitive to use. There is a row for each user for each day with the collated values for that given day.
 
+i.e. on day X how many emails did they recieved that bounced. I wanted to build something that doesn't just answer the question that has been asked but allows varying questions on sets up a scalable analytics framework going forward.
+
+i.e. given the date range X->Y how many emails bounced in Spain.
+
+It is supposed to represent a scalable self serve analtics solution (wow mouthful) that is user friendly.
+
+(also worth noting I've put plenty of comments in the code to explain my thinking).
+
+Replication steps for viewing the data.
+
+1. Download the archive.zip
+2. Extract it.
+3. Open the ten_fin_db.duckdb file.
+
+Replication for running models and tests.
+
+1. Extract the archive.zip on a machine with python 3.9 installed and the packages provided in the requirements.txt.
+2. Run 'dbt init'
+3. Run 'dbt deps'
+4. Run 'dbt run'
+5. Run 'dbt test'.
+
+And to get the results from the question run the below:
+
+SELECT country, COUNT(1)
+FROM main.customers_daily
+GROUP BY 1
