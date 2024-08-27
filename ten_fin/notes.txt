@@ -24,6 +24,7 @@ Replication for running models and tests.
 
 And to get the results from the question run the below:
 
-SELECT country, COUNT(1)
-FROM main.customers_daily
+SELECT country, SUM(total_open)
+FROM main.customers_daily cd 
 GROUP BY 1
+ORDER BY 2 DESC
